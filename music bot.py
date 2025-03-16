@@ -10,6 +10,12 @@ load_dotenv()
 TOKEN = os.getenv("TOKEN")
 FFMPEG_PATH = os.getenv("FFMPEG_PATH")
 
+# Write the cookies from environment variable to a file
+cookies_content = os.getenv("YOUTUBE_COOKIES")
+if cookies_content:
+    with open("cookies.txt", "w") as file:
+        file.write(cookies_content)
+        
 # Start command handler
 async def start(update: Update, context: CallbackContext) -> None:
     await update.message.reply_text("Send me a YouTube link to download as MP3.")
