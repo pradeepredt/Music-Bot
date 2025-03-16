@@ -27,6 +27,7 @@ async def download_mp3(update: Update, context: CallbackContext) -> None:
         "outtmpl": "%(title)s.%(ext)s",
         "postprocessors": [{"key": "FFmpegExtractAudio", "preferredcodec": "mp3", "preferredquality": "192"}],
         "ffmpeg_location": FFMPEG_PATH,
+        "cookiefile": "cookies.txt"
     }
 
     try:
